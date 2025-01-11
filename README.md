@@ -20,6 +20,7 @@ This script tries to satisfy these requirements.
 * `/path/to/logos/dir` should be replaced with the path where your logos are stored (more about the directory structure needed later)
 * `defaultGroupName` should be replaced with the name of the subgroup which should be assumed as default (more on that later)
 * `currentStyleName` should be replaced with the name of style which should be assumed as default (more on that later)
+* there is an optional fourth argument: `svg/webp/png/jpg/ico` This specifies the preference of file extensions for the symlink without a file extension. If the first format is not found, the next one is tried. With this argument you can change the order in which these extensions are tried.
 
 ### The required directory structure
 

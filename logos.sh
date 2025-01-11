@@ -3,14 +3,14 @@
 logosRootPath=${1:-$PWD}
 defaultGroup=${2:-AT}
 targetStyle=${3:-default}
-extensionPreference=${4:-'svg webp png jpg ico'}
+extensionPreference=${4:-'svg/webp/png/jpg/ico'}
 
 cd $logosRootPath
 find . -type l -delete
 for groupFolder in $(ls -d */); do
   cd "$groupFolder"
   for logoStyleVariant in $(find . -type f | sed 's#.*/##; s#[.][^.]*$##' | sort | uniq); do
-    for extension in $extensionPreference; do
+    for extension in $(echo $extensionPreference | tr "/" "\n"); do
       if [ -f $logoStyleVariant.$extension ]; then
         ln -s -F -f $logoStyleVariant.$extension $logoStyleVariant
         break
