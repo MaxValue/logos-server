@@ -1,0 +1,21 @@
+
+RewriteEngine On
+RewriteBase /
+
+# file extension less variants ?
+# default group ?
+
+# current style
+RewriteCond %{TIME_MON} <06
+RewriteRule ^([a-zA-Z0-9_/-]+)logo_([a-zA-Z0-9_.-]+)$ /$1default_$2 [R=301,L]
+RewriteRule ^logo_([a-zA-Z0-9_.-]+)$ /default_$2 [R=301,L]
+
+RewriteCond %{TIME_MON} >06
+RewriteRule ^([a-zA-Z0-9_/-]+)logo_([a-zA-Z0-9_.-]+)$ /$1default_$2 [R=301,L]
+RewriteRule ^logo_([a-zA-Z0-9_.-]+)$ /default_$2 [R=301,L]
+
+# dated style:
+RewriteCond %{TIME_MON} <07
+RewriteCond %{TIME_MON} >05
+RewriteRule ^([a-zA-Z0-9_/-]+)logo_([a-zA-Z0-9_.-]+)$ /$1pride_$2 [R=301,L]
+RewriteRule ^logo_([a-zA-Z0-9_.-]+)$ /pride_$2 [R=301,L]
